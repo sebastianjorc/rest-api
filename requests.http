@@ -1,0 +1,10 @@
+###
+POST http://localhost:1337/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"sebastianjorc",
+    "email": "sebastianjorc@gmail.com",
+    "password": "password1!",
+    "passwordConfirmation": "password1!"
+}

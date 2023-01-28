@@ -4,14 +4,15 @@ import config from 'config'
 import logger from './logger'
 
 async function connect(){
-    const dbUri = config.get<string>("dbUri")
-
+    const dbUri = config.get<string>("dbUri") 
     try {
-      await mongoose.connect(dbUri)
+      mongoose.set('strictQuery', true);
+      await mongoose
+        .connect(dbUri)
       logger.info('DB connected')
     } catch (error) {
-      logger.error("Could not connect to the db")
-      process.exit(1)
+      logger.error("Could not connect to the db bc:\n"+error+"\n\n"+dbUri+"\n");
+      process.exit(1);
     }
 }
 
