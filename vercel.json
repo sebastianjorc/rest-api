@@ -13,14 +13,14 @@
         "src": "*.ts",
         "use": "@vercel/node-server",
         "config": {
-          "command": "tsc && node index.js"
+          "command": "tsc && node app.js"
         }
       }
     ],
     "routes": [
       {
         "src": "/.*",
-        "dest": "/index.ts"
+        "dest": "/app.ts"
       }
     ]
   }
