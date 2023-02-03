@@ -2,17 +2,15 @@
     "version": 2,
     "builds": [
       {
-        "src": "*.ts",
-        "use": "@vercel/node-server",
-        "config": {
-          "command": "npx -tsc && node dist/src/app.js"
-        }
+        "src": "dist/app.js",
+        "use": "@vercel/node",
+        "config": { "includeFiles": ["dist/**"] }
       }
     ],
     "routes": [
       {
-        "src": "/.*",
-        "dest": "(.*)"
+        "src": "/(.*)",
+        "dest": "dist/app.js"
       }
     ]
   }
