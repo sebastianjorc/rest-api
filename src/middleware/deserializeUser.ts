@@ -13,7 +13,7 @@ const deserializeUser = async (
     ''
   );
 
-  const refreshToken = get(req, 'headers.x-refresh');
+  const refreshToken : any = get(req, 'headers.x-refresh');
 
   if (!accessToken) {
     return next();
@@ -27,7 +27,7 @@ const deserializeUser = async (
   }
 
   if (expired && refreshToken) {
-    const newAccessToken = await reIssueAccessToken({ refreshToken });
+    const newAccessToken : any = await reIssueAccessToken({ refreshToken });
 
     if (newAccessToken) {
       res.setHeader('x-access-token', newAccessToken);
